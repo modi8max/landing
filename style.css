@@ -1,0 +1,239 @@
+/* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #333;
+    --accent-color: #f4f4f4;
+    --text-color: #000;
+}
+
+body {
+  
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+html{
+    margin: 3%;
+}
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header ul li {
+    margin: 0 1.5em;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+header ul li a::before {
+    content: attr(data-hover);
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+header ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+main {
+    flex: 1;
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+.feature {
+    background-color: var(--accent-color);
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.feature i {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1em;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 1em;
+}
+
+label {
+    margin-bottom: 0.5em;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.7em;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    main {
+        padding: 1.5em;
+    }
+    
+    #features {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .feature {
+        padding: 0.8em;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        padding: 1em;
+    }
+
+    header {
+        padding: 0.8em 0;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0.5em;
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+
+    .feature {
+        padding: 0.6em;
+    }
+
+    form div {
+        margin-bottom: 0.8em;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 0.2em;
+    }
+
+    header {
+        padding: 0.6em 0;
+    }
+
+    .feature {
+        padding: 0.5em;
+    }
+
+    form div {
+        margin-bottom: 0.6em;
+    }
+
+    button {
+        padding: 0.5em;
+    }
+}
+
+/* Laptop/Desktop View */
+@media (min-width: 992px) {
+    main {
+        padding: 3em;
+    }
+
+    header ul {
+        justify-content: flex-end;
+    }
+
+    header ul li {
+        margin: 0;
+    }
+
+    header ul li a {
+        padding: 1em;
+    }
+}
